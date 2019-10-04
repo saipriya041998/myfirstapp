@@ -1,0 +1,11 @@
+.donestatus{
+  color:green;
+  text-align: center;
+}
+.pendingstatus{
+  color:red;
+  text-align: center;
+}
+.buttoncolor{
+  background-color: brown;
+}

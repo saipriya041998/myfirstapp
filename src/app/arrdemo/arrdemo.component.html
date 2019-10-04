@@ -1,0 +1,71 @@
+<!--<p>arrdemo works!</p>
+<h1>{{arr}}</h1>
+<ul>
+  <li *ngFor="let item of arr">{{item}}</li>
+</ul>-->
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<h1>Task Demo</h1>
+<br>
+<input type="text" class="form-control" placeholder="Enter Id" [(ngModel)]="id">
+<br>
+<input type="text" class="form-control" placeholder="Enter title"  [(ngModel)]="title">
+<br>
+<input type="text" class="form-control" placeholder="Enter status" [(ngModel)]="status">
+<br>
+<button (click)="onAddTaskClick()" class="btn btn-success">Add Task</button>
+<br>
+<hr>
+<input #input1 (keyup)="0">
+
+<table class="table">
+  <thead>
+    <th>ID</th>
+    <th>Title</th>
+    <th>Status</th>
+    <th>Action</th>
+  </thead>
+  <tbody>
+
+    <tr *ngFor="let item of arrtask | filter:input1.value">
+      <td>{{item.id}}</td>
+      <td>{{item.title}}</td>
+      <td>{{item.status}}</td>
+      <td><div [ngStyle]="{'background-color': 'pink','alighn':'center'}"><button (click)='deleteTask(item)' class="btn btn-danger" type="button">delete</button></div></td>
+      <td><button (click)='onEditTaskClick(item)' class="btn btn-danger" type="button">edit</button></td>
+    </tr>
+  </tbody>
+</table>
+<hr>
+<div *ngIf="flag">
+  <h1>if block</h1>
+</div>
+<hr>
+<h1>{{no | number:'3.2-2'}}</h1>
+<h1>{{dt | date:'dd/MMM/yy'}}</h1>
+<div *ngIf="flag;else falseblock"><h1>if block</h1></div>
+<ng-template #falseblock>
+  <div> <h1>false block</h1></div>
+</ng-template>
+<div [ngSwitch]="dept_id">
+
+    <div *ngSwitchCase="1"> <h1> payroll</h1></div>
+
+    <div *ngSwitchCase="2">IT</div>
+
+    <div *ngSwitchCase="3">HR</div>
+
+    <div *ngSwitchDefault>invalid value</div>
+    <hr>
+    <input appCard>
+
+  </div>
+
+</body>
